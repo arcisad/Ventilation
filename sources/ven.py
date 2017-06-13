@@ -14,12 +14,9 @@ def calculate(*args):
 
 
 def deic(self):
-    try:
-        self.deiconify()
-        self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw()) #checks if the window is being closed to iconify it again
-        root.update()
-    except ValueError:
-        pass
+    self.deiconify()
+    self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw()) #checks if the window is being closed to iconify it again
+    root.update()
     return self
 
 

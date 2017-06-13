@@ -3,6 +3,7 @@ import inspect
 
 from sources import ven
 
+
 class ApplicationTests(unittest.TestCase):
     def test_application(self):
         self.assertTrue(inspect.ismodule(ven))
