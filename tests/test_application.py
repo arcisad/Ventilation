@@ -2,6 +2,7 @@ import unittest
 import inspect
 
 from sources import ven
+from ven import TLC, FRC
 
 
 class ApplicationTests(unittest.TestCase):
