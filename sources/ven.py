@@ -3,8 +3,20 @@ from tkinter import ttk
 from tkinter import messagebox as msg
 import datetime as dt
 
+"""
+This is a user interface which asks for input from the user and tends to calculate the output flow from 
+the respiratory system. This is at the very preliminary stage and just a entry point as a main function in which
+all the parameters are collected. The documentation will be updated as the code development goes ahead. 
+"""
+
 
 def calculate(*args):
+    """
+    This function asks for FRC (Functional Residual Capacity)
+    and TLC (Total lung capacity) and calculate the VC (vital capacity)
+    :param args: No arguments are passed to this function
+    :return: The function is returning value in a global variable
+    """
     try:
         value1 = float(FRC.get())
         value2 = float(TLC.get())
@@ -14,8 +26,14 @@ def calculate(*args):
 
 
 def deic(self):
+    """
+    This function uses the features in the tkinter package.
+    deiconifies (hides) the active window
+    :param self: self refers to the window passed to this function
+    :return:
+    """
     self.deiconify()
-    self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw()) #checks if the window is being closed to iconify it again
+    self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw())  # Checks if the window is being closed to iconify it again
     root.update()
     return self
 
@@ -28,23 +46,24 @@ TLC = StringVar()
 VC = StringVar()
 
 
-mainframe = ttk.Frame(root, padding="3 3 12 12")
+mainframe = ttk.Frame(root, padding="3 3 12 12")  # The main frame of the UI
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
-lv = Toplevel(root)
+lv = Toplevel(root)  # A top level window
 ttk.Button(mainframe, text="Specify the lung volumes", command=lambda: deic(lv)).grid(column=1, row=1, sticky=W)
 lv.withdraw()
 
-nw = Toplevel(root)
+nw = Toplevel(root)  # A top level window
 ttk.Button(mainframe, text="Input Pressure", command=lambda: deic(nw)).grid(column=1, row=2, sticky=W)
 nw.withdraw()
 
-vd = Toplevel(root)
+vd = Toplevel(root)  # A top level window
 ttk.Button(mainframe, text="Volume distribution", command=lambda: deic(vd)).grid(column=2, row=1, sticky=(N, W))
 vd.withdraw()
 
+# Adding code for adding elements and functions in the sub windows
 ttk.Label(lv, text="Enter FRC: ").grid(column=1, row=1, sticky=(W, E))
 FRC_entry = ttk.Entry(lv, width=7, textvariable=FRC)
 FRC_entry.grid(column=2, row=1, sticky=(W, E))
