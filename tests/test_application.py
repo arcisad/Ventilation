@@ -3,7 +3,7 @@ import inspect
 
 
 from sources import ven
-from ven import FRC, TLC
+from sources.ven  import FRC, TLC
 
 
 class ApplicationTests(unittest.TestCase):
