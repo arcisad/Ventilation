@@ -33,7 +33,8 @@ def deic(self):
     :return:
     """
     self.deiconify()
-    self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw())  # Checks if the window is being closed to iconify it again
+    self.protocol('WM_DELETE_WINDOW', lambda: self.withdraw())
+    # Checks if the window is being closed to iconify it again
     root.update()
     return self
 
