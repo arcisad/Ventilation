@@ -51,15 +51,15 @@ mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
-lv = Toplevel(root)  # A top level window
+lv = Toplevel(root)  # A top level window, For getting the input volumes and calculating VC
 ttk.Button(mainframe, text="Specify the lung volumes", command=lambda: deic(lv)).grid(column=1, row=1, sticky=W)
 lv.withdraw()
 
-nw = Toplevel(root)  # A top level window
+nw = Toplevel(root)  # A top level window, for selecting the pressure types
 ttk.Button(mainframe, text="Input Pressure", command=lambda: deic(nw)).grid(column=1, row=2, sticky=W)
 nw.withdraw()
 
-vd = Toplevel(root)  # A top level window
+vd = Toplevel(root)  # A top level window, for calculating and distributing the unit volumes in the lung
 ttk.Button(mainframe, text="Volume distribution", command=lambda: deic(vd)).grid(column=2, row=1, sticky=(N, W))
 vd.withdraw()
 
